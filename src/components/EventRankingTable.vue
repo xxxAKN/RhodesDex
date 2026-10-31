@@ -98,7 +98,7 @@ async function loadData() {
   error.value = ''
 
   try {
-    rows.value = await loadCsv<EventData>('/event.csv')
+    rows.value = await loadCsv<EventData>(`${import.meta.env.BASE_URL}event.csv`)
     sortBy('time')
     // console.log(rows.value)
   } catch (e) {

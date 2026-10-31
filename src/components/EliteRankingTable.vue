@@ -132,8 +132,8 @@ async function loadData() {
 
   try {
     const [loadedRows, itemData] = await Promise.all([
-      loadCsv<EliteData>('/elite_data.csv'),
-      loadJson<ItemData>('/item.json'),
+      loadCsv<EliteData>(`${import.meta.env.BASE_URL}elite_data.csv`),
+      loadJson<ItemData>(`${import.meta.env.BASE_URL}item.json`),
     ])
     const itemApValues = Object.fromEntries(
       itemData.map((item) => [item.name, item.apValue]),
